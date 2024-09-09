@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 15px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: right;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: right;
+            font-style: italic;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            if (selectedTime === '45') {
+                document.getElementById('activity-2').style.display = 'none';
+            } else if (selectedTime === '40') {
+                document.getElementById('activity-2').style.display = 'none';
+                document.getElementById('activity-4').style.display = 'none';
+            }
+        }
+
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body onload="updateActivities()">
+
+<div class="header">
+    <h1>Playbook - K1 - M04.5</h1>
+</div>
+
+<div class="container">
+    <div class="dropdown">
+        <label for="time-select">Tiempo efectivo de Clase:</label>
+        <select id="time-select" onchange="updateActivities()">
+            <option value="50">50 minutos</option>
+            <option value="45">45 minutos</option>
+            <option value="40">40 minutos</option>
+        </select>
+    </div>
+
+    <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+
+<!-- Actividad 1 (3 pasos) -->
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('saludo_bienvenida')">
+        <div class="title">
+            <span>📚 Actividad 1: Saludo y Bienvenida (3 pasos)</span>
+            <span>⏰ Tiempo: 2 minutos</span>
+        </div>
+        <div class="subtitle">Introducción a la misión con Don Pepe el piñatero</div>
+    </div>
+    <div id="saludo_bienvenida" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 2 "¡Bienvenidos a La Fiesta de los Colores!". Maestros: reciban a los genios con una sonrisa y energía positiva.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">🎉 ¡Hola, genios! ¡Hoy tenemos una misión muy especial porque nos vamos a una fiesta muy divertida! En México, las fiestas están llenas de colores y alegría, y vamos a ayudar a un amigo muy especial llamado Don Pepe, el piñatero. ¿Están listos para esta aventura de colores? ¡Vamos a divertirnos muchísimo!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Mantener la Diapositiva 2. Maestros: presenten a Don Pepe a los genios de manera entusiasta.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, quiero presentarles a Don Pepe. Don Pepe es el mejor piñatero de todo México, y hoy necesita nuestra ayuda para preparar unas piñatas muy especiales para una gran fiesta. ¡Pero cuidado! Las piñatas deben tener los colores en un orden correcto, y es aquí donde ustedes, los genios, entran en acción. ¿Les gustaría ayudar a Don Pepe y preparar una fiesta increíble? 🎊</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Mantener la Diapositiva 2. Maestros: motiven a los genios para que estén listos para empezar la misión.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Don Pepe está emocionado porque sabe que ustedes son los mejores para este trabajo. Hoy vamos a jugar, construir y seguir patrones para que todas las piñatas luzcan perfectas. ¡Así que preparen sus manos y mentes para una misión llena de colores y diversión! ¿Están listos para empezar? ¡Vamos a ayudar a Don Pepe y hacer que esta fiesta sea la mejor! 🚀</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 2 (2 pasos) -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('cancion_baile')">
+        <div class="title">
+            <span>📚 Actividad 2: Canción y Baile del Día (2 pasos)</span>
+            <span>⏰ Tiempo: 3.5 minutos</span>
+        </div>
+        <div class="subtitle">Canción y baile para aprender sobre colores y patrones</div>
+    </div>
+    <div id="cancion_baile" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 3 "Canción y Baile del Día". Maestros: asegúrense de que los genios tengan espacio suficiente para moverse y bailar.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, antes de empezar con nuestra misión de ayudar a Don Pepe, vamos a movernos un poco con una canción súper divertida. ¿Recuerdan la canción de nuestra misión pasada? Pues prepárense para cantar y seguir los movimientos. ¡Bailen, canten, y sigan los pasos mientras se divierten!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (3 minutos): Proyectar el video de la canción sobre colores y patrones y guiar a los genios a seguir los movimientos.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Es hora de cantar y bailar! 🎶 Sigan los pasos que aparecen en la canción y los movimientos que nos enseñan. Recuerden estar atentos a los patrones, ¡es como un juego de seguir al líder! Veamos quién puede seguir todos los pasos y mantenerse en el ritmo. ¡Vamos genios, muévanse y diviértanse! 🌈🎉</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 3 (4 pasos) -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('formacion_parejas')">
+        <div class="title">
+            <span>📚 Actividad 3: Formación de Parejas (4 pasos)</span>
+            <span>⏰ Tiempo: 3.5 minutos</span>
+        </div>
+        <div class="subtitle">Formación de parejas para la misión con Don Pepe</div>
+    </div>
+    <div id="formacion_parejas" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (2 minutos): Proyectar Diapositiva 4 "Formando Parejas para la Fiesta". Maestros: guíen a los genios para que encuentren a un compañero y se formen en parejas.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, para poder ayudar a Don Pepe, vamos a trabajar en parejas. Quiero que miren a su alrededor y encuentren a un amigo para formar una pareja. Cuando tengan a su compañero, denle un gran saludo y prepárense para la aventura de hoy. ¡Las mejores cosas siempre se hacen en equipo!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (0.5 minutos): Mantener la Diapositiva 4. Maestros: verifiquen que todas las parejas estén correctamente formadas y listas.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¿Todos tienen su pareja? ¡Perfecto! Recuerden, trabajar en pareja significa ayudarse mutuamente. Ahora que estamos organizados, prepárense porque en cada actividad deberán pensar juntos y colaborar para lograr los desafíos de Don Pepe. ¡Es mucho más divertido cuando se trabaja en equipo!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Mantener la Diapositiva 4. Maestros: motiven a los genios a colaborar y compartir ideas con su pareja.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">En cada actividad, cada pareja tendrá que pensar y colaborar. Usen sus ideas y combínenlas para seguir los patrones y ayudar a Don Pepe. ¡Cuanto más trabajen juntos, mejor será el resultado! Así que escuchen a su compañero y asegúrense de compartir sus bloques y sus ideas para que puedan resolver los retos.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (0.5 minutos): Mantener la Diapositiva 4. Maestros: guíen a las parejas para que se preparen con los materiales necesarios.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Muy bien, genios! Ahora que están en parejas, prepárense para la misión de hoy. Vamos a usar lo que hemos aprendido y divertirnos mientras ayudamos a Don Pepe con las piñatas. ¡Recuerden, juntos pueden hacer cosas increíbles! ¿Están listos? ¡Vamos a prepararnos y empezar!</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 4 (6 pasos) -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('introduccion_actividad')">
+        <div class="title">
+            <span>📚 Actividad 4: Construyendo una Piñata con Ladrillos (6 pasos)</span>
+            <span>⏰ Tiempo: 7 minutos</span>
+        </div>
+        <div class="subtitle">Construcción de piñatas utilizando ladrillos de colores</div>
+    </div>
+    <div id="introduccion_actividad" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 5 "Construyendo una Piñata con Ladrillos". Maestros: Muestren la imagen de la piñata y expliquen el objetivo.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, para empezar nuestra misión de hoy, vamos a construir una piñata muy especial con nuestros ladrillos de construcción. ¡Miren esta piñata! No importa qué colores usen, lo importante es que sigan la forma y se diviertan construyéndola. Esta es solo una práctica para calentarnos y prepararnos para ayudar a Don Pepe. ¡Vamos a construir juntos!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Mantener la Diapositiva 5. Maestros: entreguen a cada pareja 20 ladrillos de construcción.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Cada pareja recibirá 20 ladrillos para construir su piñata. Recuerden, pueden usar los colores que quieran y colocarlos como más les guste. Lo importante es seguir la forma de la piñata. Tomen un momento para revisar sus ladrillos y planificar cómo van a armarla. ¿Listos para empezar? ¡Manos a la obra, genios!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (2 minutos): Mantener la Diapositiva 5. Maestros: guíen a los genios paso a paso, asegurándose de que todos estén avanzando juntos.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Vamos a empezar construyendo la base de nuestra piñata. Miren bien la imagen y sigan el primer paso: coloquen los ladrillos para formar la parte inferior. Si necesitan ayuda, levanten la mano y pasaremos a ayudarles. ¡Recuerden que esto es un trabajo en equipo!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (2 minutos): Mantener la Diapositiva 5. Maestros: animen a los genios a seguir construyendo, paso a paso.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Muy bien, genios, ahora sigan con la parte del medio. Traten de construir hacia arriba usando más ladrillos. ¡No olviden que pueden preguntar si necesitan ayuda! Están haciendo un gran trabajo hasta ahora, sigan así. ¡La piñata va tomando forma!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (2 minutos): Mantener la Diapositiva 5. Maestros: recorran el aula para ayudar a los genios a completar la construcción.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Casi terminamos, genios! Ahora coloquen los últimos ladrillos para terminar la parte superior de la piñata. Asegúrense de que todo esté bien conectado y estable. Si terminan, pueden hacer pequeñas decoraciones con los ladrillos restantes. ¡Miren qué piñatas tan increíbles han creado!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 6 (0.5 minutos): Proyectar Diapositiva 6 "¡Piñatas Listas para la Fiesta!". Maestros: inviten a los genios a mostrar sus piñatas y compartir lo que disfrutaron de la actividad.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Genios, lo lograron! Miren las piñatas tan coloridas que han construido. ¿Quién quiere compartir cómo se sintió construyéndola? ¿Fue fácil o difícil? ¡Vamos a aplaudirnos todos por trabajar tan bien en equipo y ser tan creativos! ¡Don Pepe estará muy orgulloso de ustedes! 👏🎉</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 5 (10 pasos) -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('introduccion_desafio')">
+        <div class="title">
+            <span>📚 Actividad 5: Replicando Patrones de Colores (10 pasos)</span>
+            <span>⏰ Tiempo: 22 minutos</span>
+        </div>
+        <div class="subtitle">Desafío de replicar patrones de colores en piñatas</div>
+    </div>
+    <div id="introduccion_desafio" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 6 "Replicando Patrones de Colores". Maestros: aseguren que los genios estén listos y atentos.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, ya construimos piñatas increíbles, pero ahora Don Pepe necesita que todas tengan los colores correctos. Vamos a mostrarles una piñata con un patrón de colores y su trabajo será replicarla exactamente igual. Recuerden, el objetivo es que sus piñatas se vean idénticas a las que les mostramos, así que pongan mucha atención. ¿Listos para empezar? ¡Vamos a por ello!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (0.5 minutos): Proyectar Diapositiva 7 con la primera piñata y su patrón de colores. Maestros: aseguren que todos los genios vean bien el patrón.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Aquí está la primera piñata, miren bien los colores. Los bloques deben estar colocados en el mismo orden y con los mismos colores que ven aquí. Tienen tres minutos para replicar esta piñata exactamente igual. ¡Manos a la obra, genios, ustedes pueden hacerlo!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (5 minutos): Mantener la Diapositiva 7. Maestros: circulen por el aula para asegurarse de que todos estén siguiendo el patrón correctamente.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Tienen cinco minutos para terminar la primera piñata. Recuerden, los colores deben estar en el mismo lugar. ¡Concéntrense y trabajen en equipo para hacerlo lo mejor posible! Si terminan antes, revisen que todo esté en orden y perfecto. ¡Tiempo en marcha! ⏰</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (1 minuto): Proyectar Diapositiva 8 con el siguiente patrón de colores. Maestros: animen a los genios y asegúrense de que todos estén listos para el cambio.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Gran trabajo, genios! Ahora vamos a cambiar al siguiente patrón. Desarmen la piñata anterior y prepárense para replicar la nueva piñata que vamos a mostrar. ¡Atentos y listos para el siguiente reto!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (5 minutos): Mantener la Diapositiva 8. Maestros: circulen por el aula para guiar y motivar a los genios mientras replican el patrón.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Recuerden, tienen cinco minutos para hacer que sus piñatas se vean igual que esta. Sigan los colores y la forma exacta. ¡Vamos genios, sigan trabajando juntos y asegúrense de que todo quede perfecto! ¡Empiecen ya! ⏰</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 6 (1 minuto): Proyectar Diapositiva 9 con el siguiente patrón de colores. Maestros: animen a los genios y asegúrense de que todos estén listos para el cambio.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Están haciendo un trabajo genial! Ahora vamos a por el tercer patrón. Desarmen la piñata anterior y prepárense para construir la nueva con el siguiente patrón de colores. ¡Atención y sigan con el gran trabajo!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 7 (5 minutos): Mantener la Diapositiva 9. Maestros: circulen por el aula y aseguren que los genios estén enfocados en el patrón correcto.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Cinco minutos para este nuevo reto, genios! Fíjense bien en cada detalle de los colores y hagan que sus piñatas luzcan igual que la que ven en la pantalla. ¡Ustedes pueden hacerlo! ¡Tiempo en marcha! ⏰</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 8 (1 minuto): Proyectar Diapositiva 10 con el siguiente patrón de colores. Maestros: animen a los genios y asegúrense de que todos estén listos para el cambio.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Último reto, genios! Vamos a construir la última piñata con este patrón. Desarmen la piñata anterior y prepárense para replicar la nueva con los colores correctos. ¡Den lo mejor de ustedes en esta última piñata!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 9 (5 minutos): Mantener la Diapositiva 10. Maestros: circulen por el aula y apoyen a los genios mientras completan el último patrón.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Cinco minutos finales, genios! Este es el último patrón y la última piñata. Sigan bien los colores y terminen fuertes. ¡Vamos genios, sé que pueden hacer que sus piñatas se vean increíbles! ¡A trabajar! ⏰</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 10 (2 minutos): Proyectar Diapositiva 11 "¡Fiesta Completa!". Maestros: inviten a los genios a mostrar sus piñatas y compartir lo que disfrutaron de la actividad.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Lo hicieron genial, genios! Miren todas las piñatas con patrones perfectos que crearon. ¿Quién quiere compartir cómo se sintió al replicar los patrones? ¡Gracias por su esfuerzo y por ayudar a Don Pepe a preparar una fiesta tan colorida y divertida! ¡Vamos a aplaudir por todo su esfuerzo y precisión! 🎉👏</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 6 (3 pasos) -->
+<div id="activity-6" class="activity">
+    <div class="banner" onclick="toggleContent('honor_dojo')">
+        <div class="title">
+            <span>📚 Actividad 6: Honor The Dojo (3 pasos)</span>
+            <span>⏰ Tiempo: 5 minutos</span>
+        </div>
+        <div class="subtitle">Recogida y Reflexión Final</div>
+    </div>
+    <div id="honor_dojo" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (3 minutos): Proyectar Diapositiva 12 "Honor The Dojo: Recogiendo después de la Fiesta". Maestros: guíen a los genios para recoger sus ladrillos y piñatas y llevarlos al frente para guardarlos.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, qué día tan maravilloso hemos tenido ayudando a Don Pepe a preparar la fiesta de los colores. Ahora, para terminar, vamos a recoger todos los ladrillos y piñatas que usamos y llevarlos al frente para guardarlos. ¡Así dejamos todo listo para la próxima aventura y mantenemos nuestro espacio ordenado! Gracias por ser tan responsables y cuidar de nuestro dojo de la fiesta. 🎉</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Mantener la Diapositiva 12. Maestros: inviten a los genios a compartir lo que más les gustó de la misión.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, han hecho un trabajo fenomenal hoy. ¡Don Pepe está muy agradecido y orgulloso de ustedes! No solo aprendieron a seguir patrones y construir piñatas, sino que también trabajaron juntos y se divirtieron mucho. ¿Qué fue lo que más les gustó de la misión? ¡Escuchemos algunas de sus ideas! 🎊</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Proyectar Diapositiva 13 "¡Gracias por Ayudar a Don Pepe!". Maestros: despidan a los genios con una sonrisa y energía positiva, invitándolos a seguir disfrutando de aprender y jugar.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, gracias por venir a esta misión tan especial y por ayudar a Don Pepe a preparar la fiesta más colorida de todas. Ustedes son verdaderos campeones de las piñatas y los patrones, y Don Pepe no podría haberlo hecho sin su ayuda. ¡Ahora es tiempo de celebrar! Si les gustó la clase de hoy, levanten los brazos y agiten las manos como si estuvieran celebrando en una fiesta. ¡Hasta la próxima aventura, genios! ¡Sigan siendo increíbles y recuerden siempre divertirse mientras aprenden! 🌟🎉</div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</div>
+</body>
+</html>
